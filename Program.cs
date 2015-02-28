@@ -12,7 +12,7 @@ namespace fridge
 
         private static void Main(string[] args)
         {
-            Console.Title = "Kylskåp A";
+
             Console.BackgroundColor = ConsoleColor.DarkGreen;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("╔═════════════════════════════════════╗");
@@ -25,13 +25,13 @@ namespace fridge
             ViewTestHeader("\nTest 1.\nTest av standardkonstruktorn.\n");
             Console.WriteLine(cooler.ToString());
 
-            Cooler cooler1 = new Cooler(24.5m, 4);
+            cooler = new Cooler(24.5m, 4);
             ViewTestHeader("\nTest 2.\nTest av konstruktorn med 2 argument. (24,5 och 4)\n");
-            Console.WriteLine(cooler1.ToString());
+            Console.WriteLine(cooler.ToString());
 
-            Cooler cooler2 = new Cooler(19.5m, 4, true, false);
+            cooler = new Cooler(19.5m, 4, true, false);
             ViewTestHeader("\nTest 3.\nTest av konstruktorn med 4 argument. (19,5, 4, True och False)\n");
-            Console.WriteLine(cooler2.ToString());
+            Console.WriteLine(cooler.ToString());
 
             cooler = new Cooler(5.3m, 4, true, false);
             ViewTestHeader("\nTest 4.\nTest av metoden Tick()\n");
@@ -85,14 +85,16 @@ namespace fridge
             {
                 ViewErrorMessages("Måltemperaturen är inte i intervallen 0-20°C");
             }
-            ViewTestHeader("\nTest 9.\nTest av konstruktorerna så att undantag kastas då innetempraturen och måltempratur tilldelas felaktiga värden.\n");
+
+            ViewTestHeader("\nTest 9.\nTest av konstruktorerna så att undantag kastas då innetemperaturen och måltemperatur tilldelas felaktiga värden.\n");
+
             try
             {
-                cooler = new Cooler(-1, 4); 
+                cooler = new Cooler(-1, 4);
             }
             catch (Exception)
             {
-                ViewErrorMessages("Innetempraturen är inte i intervallen 0-45°C");
+                ViewErrorMessages("Innetemperaturen är inte i intervallen 0-45°C");
             }
             try
             {
@@ -100,7 +102,7 @@ namespace fridge
             }
             catch (Exception)
             {
-                ViewErrorMessages("Innetempraturen är inte i intervallen 0-45°C");
+                ViewErrorMessages("Innetemperaturen är inte i intervallen 0-45°C");
             }
             try
             {
@@ -118,9 +120,9 @@ namespace fridge
             {
                 ViewErrorMessages("Måltemperaturen är inte i intervallen 0-20°C");
             }
+
             Console.WriteLine();
         }
-
         private static void Run(Cooler cooler, int minutes)
         {
             Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -152,5 +154,6 @@ namespace fridge
             Console.WriteLine();
             Console.WriteLine(header);
         }
+
     }
 }

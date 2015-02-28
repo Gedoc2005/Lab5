@@ -8,9 +8,9 @@ namespace fridge
 {
     class Cooler
     {
-        private decimal _insideTemperature;
-        private decimal _targetTemperature;
-        private const decimal OutsideTemperature = 27.7m;
+        private decimal _insideTemperature =0.0m;
+        private decimal _targetTemperature =0.0m;
+        private const decimal OutsideTemperature = 23.7m;
 
         public bool DoorIsOpen { get; set; }
 
@@ -48,12 +48,12 @@ namespace fridge
         }
 
         public Cooler()
-            : this(0m, 0m)
+            : this(0.0m, 0.0m)
         {
         }
 
         public Cooler(decimal temperature, decimal targetTemperature)
-            : this(0m, 0m, false, false)
+            : this(temperature, targetTemperature, false, false)
         {
         }
         public Cooler(decimal temperature, decimal targetTemperature, bool isOn, bool doorIsOpen)
@@ -66,7 +66,7 @@ namespace fridge
 
         public void Tick()
         {
-            decimal change = 0m;
+            decimal change = 0.0m;
 
             if (IsOn == true && DoorIsOpen == false)
             {
@@ -76,9 +76,9 @@ namespace fridge
             {
                 change += 0.2m;
             }
-            else if (IsOn == false && DoorIsOpen == false)
+            else if (IsOn == false && DoorIsOpen == true)
             {
-                change += 0.1m;
+                change += 0.5m;
             }
             else if (IsOn == true && DoorIsOpen == true)
             {

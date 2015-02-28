@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="fridge.Cooler">
-    <Position X="1.75" Y="1" Width="4" />
-    <Compartments>
-      <Compartment Name="Properties" Collapsed="true" />
-    </Compartments>
+    <Position X="3" Y="1" Width="4" />
     <TypeIdentifier>
       <HashCode>IAAAAAEAAgAAAAAEAAAAAAAAAQAAAAIBAAAAABAAQAA=</HashCode>
       <FileName>Cooler.cs</FileName>
